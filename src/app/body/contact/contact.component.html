@@ -1,1 +1,36 @@
-<p>contact works!</p>
+<main>
+  <h1 class="mat-headline-3">Contact Me!</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="(true)">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error>Please enter a valid email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" />
+      <mat-error *ngIf="contactForm.controls.firstName.getError('required')">
+        Please enter a valid name
+      </mat-error>
+      <mat-error *ngIf="contactForm.controls.firstName.getError('pattern')">
+        Name can only contain letters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" />
+      <mat-error *ngIf="contactForm.controls.lastName.getError('required')">
+        Please enter a valid name
+      </mat-error>
+      <mat-error *ngIf="contactForm.controls.lastName.getError('pattern')">
+        Name can only contain letters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" />
+      <mat-error>Please enter a valid phone number</mat-error>
+    </mat-form-field>
+    <button mat-raised-button>Submit</button>
+  </form>
+</main>
