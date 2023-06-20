@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '/',
-    pathMatch:'full',
+    path: '',
     loadChildren: () => import('./body/body.module').then((m) => m.BodyModule),
   },
-  { path: '**', redirectTo: 'about' },
+  { path: '**', redirectTo: '/about' },
 ];
 
 @NgModule({

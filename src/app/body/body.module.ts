@@ -4,7 +4,8 @@ import { AboutComponent } from './about/about.component';
 import { EducationComponent } from './education/education.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
-import { BodyRoutingModule } from './body-routing/body-routing.module';
+import { BodyRoutingModule } from './body-routing.module';
+import { BodyComponent } from './body.component';
 
 
 
@@ -13,7 +14,8 @@ import { BodyRoutingModule } from './body-routing/body-routing.module';
     AboutComponent,
     EducationComponent,
     ExperienceComponent,
-    ContactComponent
+    ContactComponent,
+    BodyComponent
   ],
   imports: [
     CommonModule,
