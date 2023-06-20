@@ -1,0 +1,20 @@
+:host {
+  flex: 1;
+}
+
+section {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+}
+
+p {
+  text-wrap: balance;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  border-bottom: 1px solid black;
+  padding: 2px 14px;
+}

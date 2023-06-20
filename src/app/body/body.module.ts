@@ -5,6 +5,7 @@ import { EducationComponent } from './education/education.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
 import { BodyRoutingModule } from './body-routing.module';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,6 @@ import { BodyRoutingModule } from './body-routing.module';
     ExperienceComponent,
     ContactComponent,
   ],
-  imports: [CommonModule, BodyRoutingModule],
+  imports: [CommonModule, BodyRoutingModule, MatDividerModule],
 })
 export class BodyModule {}
