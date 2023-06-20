@@ -5,9 +5,6 @@ import { EducationComponent } from './education/education.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
 import { BodyRoutingModule } from './body-routing.module';
-import { BodyComponent } from './body.component';
-
-
 
 @NgModule({
   declarations: [
@@ -15,11 +12,7 @@ import { BodyComponent } from './body.component';
     EducationComponent,
     ExperienceComponent,
     ContactComponent,
-    BodyComponent
   ],
-  imports: [
-    CommonModule,
-    BodyRoutingModule
-  ]
+  imports: [CommonModule, BodyRoutingModule],
 })
-export class BodyModule { }
+export class BodyModule {}
