@@ -1,10 +1,20 @@
-a{
-	text-decoration: none;
-}
-a:hover{
-	color:red;
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: red;
+  }
 }
 
-.active{
-	text-decoration: underline;
+.active {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: azure;
+    &:visited {
+      color: #c383ff;
+    }
+  }
 }

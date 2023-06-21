@@ -1,20 +1,18 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent {
-  constructor(private _fb: FormBuilder) {}
+export class ContactComponent  implements OnDestroy{
+  constructor(public _contact: ContactService) {}
 
-  alphabeticRegex = () => new RegExp(/^[\D\w]+$/  , 'u')
+ngOnDestroy(): void {
+    this._contact.handleOnDestroyOfPageResetForm();
+}
 
-  contactForm = this._fb.nonNullable.group({
-    email: ['', [Validators.email, Validators.required]],
-    firstName: ['', [Validators.required, Validators.pattern(this.alphabeticRegex())]],
-    lastName: ['', [Validators.required, Validators.pattern(this.alphabeticRegex())]],
-    phone: ['', [Validators.required, Validators.pattern(/\d/)]],
-  });
+
 }
