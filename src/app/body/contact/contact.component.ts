@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { ContactService } from './contact.service';
 
 @Component({
@@ -7,12 +15,22 @@ import { ContactService } from './contact.service';
   styleUrls: ['./contact.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent  implements OnDestroy{
-  constructor(public _contact: ContactService) {}
+export class ContactComponent implements OnDestroy, AfterViewInit {
+  constructor(
+    public _contact: ContactService,
+    private _change: ChangeDetectorRef
+  ) {}
 
-ngOnDestroy(): void {
+  @ViewChild('email') email!: ElementRef<HTMLInputElement>;
+
+  ngOnDestroy(): void {
     this._contact.handleOnDestroyOfPageResetForm();
-}
+  }
 
-
+  ngAfterViewInit(): void {
+    if (this.email) {
+      this.email.nativeElement.focus();
+      this._change.detectChanges();
+    }
+  }
 }

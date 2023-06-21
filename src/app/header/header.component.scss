@@ -12,10 +12,39 @@ header {
     rgba(calc(var(--base-color) - 40), calc(var(--base-color) - 15) ,var(--base-color), 1) 69%,
     rgba(calc(var(--base-color) - 53), calc(var(--base-color) - 29), calc(var(--base-color) - 23), 1) 100%
   );
+  min-height: 88px;
 }
 
 .logo {
-  font-size: 30px;
+  position: relative;
+  & img{
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    filter: grayscale(0.5);
+    transition: .5s;
+
+    &::after{
+      content:' ';
+      position: absolute;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      // transition: .5s;
+      background: url('../../assets/me2imporoved.jpg');
+    }
+
+    &:hover{
+      opacity: 0;
+    }
+    &:hover::after{
+      scale:6;
+      opacity: 1;
+    }
+  }
 }
 
 nav {
@@ -25,7 +54,7 @@ nav {
 
 @media (prefers-color-scheme: dark) {
   header{
-    --base-color:50;
+    --base-color:35;
   }
 }
 

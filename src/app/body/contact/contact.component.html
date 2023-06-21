@@ -1,12 +1,12 @@
 <main>
-  <h1 class="mat-headline-3">Contact Me!</h1>
+  <h1 class="main-title">Contact Me!</h1>
   <form
     [formGroup]="_contact.contactForm"
     (ngSubmit)="_contact.handleContactFormSubmitted()"
   >
-    <mat-form-field>
+    <mat-form-field >
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" autocomplete="email" />
+      <input matInput #email formControlName="email" autocomplete="email" />
       <mat-error>Please enter a valid email</mat-error>
     </mat-form-field>
     <mat-form-field>
