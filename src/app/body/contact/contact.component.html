@@ -3,12 +3,12 @@
   <form [formGroup]="contactForm" (ngSubmit)="(true)">
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" />
+      <input matInput formControlName="email" autocomplete="email" />
       <mat-error>Please enter a valid email</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>First Name</mat-label>
-      <input matInput formControlName="firstName" />
+      <input matInput formControlName="firstName"  autocomplete="given-name" />
       <mat-error *ngIf="contactForm.controls.firstName.getError('required')">
         Please enter a valid name
       </mat-error>
@@ -18,7 +18,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName" />
+      <input matInput formControlName="lastName"  autocomplete="family-name" />
       <mat-error *ngIf="contactForm.controls.lastName.getError('required')">
         Please enter a valid name
       </mat-error>
@@ -28,7 +28,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Phone</mat-label>
-      <input matInput formControlName="phone" />
+      <input matInput formControlName="phone"  autocomplete="tel" />
       <mat-error>Please enter a valid phone number</mat-error>
     </mat-form-field>
     <button mat-raised-button>Submit</button>
