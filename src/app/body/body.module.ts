@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ConfettiComponent } from './confetti/confetti.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     EducationComponent,
     ExperienceComponent,
     ContactComponent,
+    ConfettiComponent,
   ],
   imports: [
     CommonModule,
