@@ -7,10 +7,26 @@ import { ExperienceComponent } from './experience/experience.component';
 // import { BodyComponent } from './body.component';
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'education', component: EducationComponent },
-  { path: 'experience', component: ExperienceComponent },
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: { animation: 'AboutPage' },
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: { animation: 'ContactPage' },
+  },
+  {
+    path: 'education',
+    component: EducationComponent,
+    data: { animation: 'EducationPage' },
+  },
+  {
+    path: 'experience',
+    component: ExperienceComponent,
+    data: { animation: 'ExperiencePage' },
+  },
   { path: '**', redirectTo: 'about' },
 ];
 
