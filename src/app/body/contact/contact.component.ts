@@ -24,6 +24,7 @@ export class ContactComponent implements OnDestroy, AfterViewInit {
   @ViewChild('email') email!: ElementRef<HTMLInputElement>;
 
   ngOnDestroy(): void {
+    window.scrollTo({top:0})
     this._contact.handleOnDestroyOfPageResetForm();
   }
 

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-experience',
@@ -6,4 +6,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./experience.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExperienceComponent {}
+export class ExperienceComponent implements OnDestroy {
+
+  ngOnDestroy(): void {
+      window.scrollTo({top:0})
+  }
+}
