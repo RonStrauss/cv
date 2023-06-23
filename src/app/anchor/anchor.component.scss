@@ -1,6 +1,7 @@
 a {
   text-decoration: none;
   position: relative;
+  font-family: 'Manrope', sans-serif;
 
   &:hover {
     color: red;
@@ -14,13 +15,16 @@ a {
     height: 0.1em;
     background-color: #c383ff;
     opacity: 0;
-    transition: opacity 300ms, transform 300ms;
+    transition:  300ms;
   }
 }
 
-.active::after {
-	opacity: 1;
-	transform: translate3d(0, 0.2em, 0);
+.active{
+  font-weight: 900;
+  &::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
 }
 
 // .active {
