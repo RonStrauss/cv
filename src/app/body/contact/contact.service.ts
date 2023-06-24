@@ -20,14 +20,6 @@ export class ContactService {
   });
 
   handleContactFormSubmitted():void{
-
-    for (const key of Object.keys(this.contactForm)) {
-      const control = (this.contactForm[key as keyof typeof this.contactForm])
-        if (control instanceof AbstractControl && control.invalid){
-          
-        }
-    }
-
     if (this.contactForm.invalid || this.isFormSubmittedSuccessfully$.value) return
     this.isFormSubmittedSuccessfully$.next(true)
   }

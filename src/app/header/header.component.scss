@@ -24,7 +24,9 @@ header {
     transition: 0.5s;
 
     &:hover {
-      scale:2;
+      scale:4;
+      border-radius: 6px;
+      transform: translate(50%, 50%);
     }
   }
 }
