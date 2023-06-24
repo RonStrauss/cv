@@ -22,6 +22,7 @@ export class ContactService {
   handleContactFormSubmitted():void{
     if (this.contactForm.invalid || this.isFormSubmittedSuccessfully$.value) return
     this.isFormSubmittedSuccessfully$.next(true)
+    
   }
 
   handleOnDestroyOfPageResetForm(){
