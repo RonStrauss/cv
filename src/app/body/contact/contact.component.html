@@ -71,6 +71,7 @@
     class="form-conclusion-wrapper"
     *ngIf="_contact.isFormSubmittedSuccessfully$ | async"
   >
+  <h1 class="form-submit-success" [ngClass]="{open:_contact.isRequestSuccessfullySent$ | async}">Form Submitted Successfully!</h1>
     <mat-spinner
       *ngIf="
         !(_contact.isRequestSuccessfullySent$ | async);
@@ -79,7 +80,6 @@
       color="primary"
     ></mat-spinner>
     <ng-template #successBlock>
-      <h1>Form Submitted Successfully!</h1>
       <app-confetti></app-confetti>
     </ng-template>
   </div>

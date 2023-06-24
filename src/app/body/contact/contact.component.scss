@@ -40,3 +40,14 @@ main{
 	align-items: center;
 	flex-direction: column;
  }
+
+ .form-submit-success{
+	max-height: 0;
+	opacity:0;
+	transition: max-height 1s, opacity .4s;
+	overflow: hidden;
+	&.open{
+		max-height: 10rem;
+		opacity: 1;
+	}
+ }
