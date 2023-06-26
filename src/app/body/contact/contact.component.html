@@ -1,84 +1,47 @@
 <main>
   <h1 class="main-title">Contact Me!</h1>
-  <form
-    [formGroup]="_contact.contactForm"
-    (ngSubmit)="_contact.handleContactFormSubmitted()"
-    [ngClass]="{ submitted: _contact.isFormSubmittedSuccessfully$ | async }"
-  >
+  <form [formGroup]="_contact.contactForm" (ngSubmit)="_contact.handleContactFormSubmitted()"
+    [ngClass]="{ submitted: _contact.isFormSubmittedSuccessfully$ | async }">
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input
-        matInput
-        #email
-        formControlName="email"
-        autocomplete="email"
-        class="removeMyAutofillBackground"
-      />
+      <input matInput #email formControlName="email" autocomplete="email" class="removeMyAutofillBackground" />
       <mat-error>Please enter a valid email</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>First Name</mat-label>
-      <input
-        matInput
-        formControlName="firstName"
-        autocomplete="given-name"
-        class="removeMyAutofillBackground"
-      />
-      <mat-error
-        *ngIf="_contact.contactForm.controls.firstName.getError('required')"
-      >
+      <input matInput formControlName="firstName" autocomplete="given-name" class="removeMyAutofillBackground" />
+      <mat-error *ngIf="_contact.contactForm.controls.firstName.getError('required')">
         Please enter a valid name
       </mat-error>
-      <mat-error
-        *ngIf="_contact.contactForm.controls.firstName.getError('pattern')"
-      >
+      <mat-error *ngIf="_contact.contactForm.controls.firstName.getError('pattern')">
         Name can only contain letters
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Last Name</mat-label>
-      <input
-        matInput
-        formControlName="lastName"
-        autocomplete="family-name"
-        class="removeMyAutofillBackground"
-      />
-      <mat-error
-        *ngIf="_contact.contactForm.controls.lastName.getError('required')"
-      >
+      <input matInput formControlName="lastName" autocomplete="family-name" class="removeMyAutofillBackground" />
+      <mat-error *ngIf="_contact.contactForm.controls.lastName.getError('required')">
         Please enter a valid name
       </mat-error>
-      <mat-error
-        *ngIf="_contact.contactForm.controls.lastName.getError('pattern')"
-      >
+      <mat-error *ngIf="_contact.contactForm.controls.lastName.getError('pattern')">
         Name can only contain letters
       </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Phone</mat-label>
-      <input
-        matInput
-        formControlName="phone"
-        autocomplete="tel"
-        class="removeMyAutofillBackground"
-      />
+      <input matInput formControlName="phone" autocomplete="tel" class="removeMyAutofillBackground" />
       <mat-error>Please enter a valid phone number</mat-error>
     </mat-form-field>
     <button type="submit" color="primary" mat-raised-button>Submit</button>
 
   </form>
-  <div
-    class="form-conclusion-wrapper"
-    *ngIf="_contact.isFormSubmittedSuccessfully$ | async"
-  >
-  <h1 class="form-submit-success" [ngClass]="{open:_contact.isRequestSuccessfullySent$ | async}">Form Submitted Successfully!</h1>
-    <mat-spinner
-      *ngIf="
+  <div class="form-conclusion-wrapper" *ngIf="_contact.isFormSubmittedSuccessfully$ | async">
+    <h1 class="form-submit-success" [ngClass]="{open:_contact.isRequestSuccessfullySent$ | async}">Form Submitted
+      Successfully!</h1>
+    <mat-spinner *ngIf="
         !(_contact.isRequestSuccessfullySent$ | async);
         else successBlock
-      "
-      color="primary"
-    ></mat-spinner>
+      " color="primary"></mat-spinner>
     <ng-template #successBlock>
       <app-confetti></app-confetti>
       <h5 class="subtitle">(Form wasn't actually submitted anywhere... 😅)</h5>
