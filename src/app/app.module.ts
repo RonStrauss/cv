@@ -9,6 +9,11 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnchorComponent } from './anchor/anchor.component';
 
+
+export function prefersReducedMotion(): boolean {
+  return window.matchMedia("(prefers-reduced-motion)").matches;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +25,10 @@ import { AnchorComponent } from './anchor/anchor.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule.withConfig({
+      disableAnimations: prefersReducedMotion()
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]

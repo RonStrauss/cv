@@ -30,6 +30,8 @@ const routes: Routes = [
   { path: '**', redirectTo: 'about' },
 ];
 
+export const bodyRoutes = routes.map(route => route.path)
+
 @NgModule({
   declarations: [],
   imports: [RouterModule.forChild(routes)],
