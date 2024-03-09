@@ -10,5 +10,5 @@ export default defineConfig({
   publicDir: 'public',
   site: 'https://ronstrauss.dev',
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare()
 });
