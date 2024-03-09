@@ -1,0 +1,17 @@
+---
+import type { Project } from '../pages/projects.astro';
+interface Props {
+	list: Project[];
+}
+const { list } = Astro.props;
+import HorizontalCard from '../components/HorizontalCard.astro';
+---
+
+{
+	list &&
+		list.map((item, index) => (
+			<>
+				<HorizontalCard key={index} title={item.title} img={item.img} desc={item.desc} url={item.url} badge={item.badge} />
+			</>
+		))
+}

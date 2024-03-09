@@ -1,0 +1,24 @@
+---
+const { title, subtitle, className, link }: Record<'title' | 'subtitle' | 'className' | 'link', string> = Astro.props;
+---
+
+<div class="flex">
+	<div class="education__time">
+		<span class="w-4 h-4 bg-primary block rounded-full mt-1"></span>
+		<span class="education__line bg-primary block h-full w-[2px] translate-x-[7px]"></span>
+	</div>
+	<div class={'experience__data bd-grid px-5 ' + (className || '')}>
+		<h3 class="font-semibold mb-1 text-xl">{title}</h3>
+		<span class="font-light text-sm">{subtitle}</span>
+		{
+			link && (
+				<a href={link} class="text-primary text-sm font-light block italic" target="_blank">
+					Certification
+				</a>
+			)
+		}
+		<p class="my-2 text-justify">
+			<slot />
+		</p>
+	</div>
+</div>

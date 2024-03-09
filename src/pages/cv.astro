@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimeLineElement from '../components/cv/TimeLine.astro';
+
+const year = new Date().getFullYear();
+
+const educationAndCertifications = [
+	{
+		title: 'Fullstack Web Development Bootcamp - Honor Student',
+		subtitle: '2021 - 2022 at John Bryce, Tel-Aviv',
+		link: 'https://drive.google.com/file/d/1MrfLGLLU8bPgd6Y5YjAKu5QX0JeZNpog/view',
+	},
+	{
+		title: 'CS50x Online Course',
+		subtitle: '2023 at MIT EdX',
+	},
+];
+
+const jobs = [
+	{
+		title: 'Software Engineer',
+		subtitle: 'From 2022 to ' + year + ' at Mobility Software Solutions, Petah Tikva, Israel',
+		description: {
+			title: 'Single lead responsibility for fullstack development, with a focus on front.',
+			list: [
+				'Translating business needs into working, responsive, and styled software, while managing the regular workload, of updating existing legacy code.',
+				'Pushed for implementation of a Service Worker, to improve offline capabilities. Improved algorithms and search functionalities.',
+				'Integrated Github CI/CD workflow and Actions with Cloudflare Pages, resulting in automated processes and minimal downtime.',
+				'Integrated testing methodology.',
+			],
+		},
+	},
+	{
+		title: 'Help Desk Technician',
+		subtitle: 'From 2018 to 2020 at Israel Museum, Jerusalem, Israel',
+		description: {
+			title: 'Hands-on Technician:',
+			list: [
+				'Troubleshooting day-to-day operations.',
+				'Hardware and software installation.',
+				'Providing technical support for employees.',
+				"Knowing the inside and out of the organization's technologies.",
+			],
+			paragraph:
+				"I was promoted from the customer experience department due to my fast learning and knack for technology. During my residency, I've improved the task-management web application and improved response times.",
+		},
+	},
+];
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+	<div class="mb-5">
+		<div class="text-6xl w-full font-bold antialiased underline hover:subpixel-antialiased">Profile</div>
+	</div>
+
+	<div class="mb-5">
+		<div class="text-3xl w-full font-bold">Education</div>
+	</div>
+
+	<div class="time-line-container grid gap-4 mb-10">
+		{educationAndCertifications.map((education) => <TimeLineElement title={education.title} subtitle={education.subtitle} link={education.link} />)}
+	</div>
+
+	<div class="mb-5">
+		<div class="text-3xl w-full font-bold">Experience</div>
+	</div>
+
+	<div class="time-line-container mb-10">
+		{
+			jobs.map((job) => (
+				<TimeLineElement title={job.title} subtitle={job.subtitle}>
+					<h3>{job.description.title}</h3>
+					<ul class="list-outside list-disc mb-3">
+						{job.description.list.map((item) => (
+							<li class="mx-4 mb-2">{item}</li>
+						))}
+					</ul>
+					{job.description.paragraph ? <p class="font-light mb-4">{job.description.paragraph}</p> : null}
+				</TimeLineElement>
+			))
+		}
+	</div>
+
+	<!-- <div class="mb-5">
+		<div class="text-3xl w-full font-bold">Certifications</div>
+	</div>
+
+	<ul class="list-disc mx-6 mb-10 grid gap-2">
+		<li>
+			<a href="#" target="_blank"> Certification Name (with link)</a>
+		</li>
+		<li>
+			<a href="#" target="_blank"> Certification Name (with link)</a>
+		</li>
+	</ul> -->
+
+	<div class="mb-5">
+		<div class="text-3xl w-full font-bold">Skills &amp; Technologies</div>
+	</div>
+
+	<ul class="list-disc md:columns-5 columns-2 mx-6">
+		<li>Fullstack Development</li>
+		<li>Front End</li>
+		<li>Back End</li>
+		<li>Angular 2+</li>
+		<li>Typescript / Javascript</li>
+		<li>React</li>
+		<li>Node.JS</li>
+		<li>Express</li>
+		<li>Mongo</li>
+		<li>SQL Server</li>
+		<li>Powershell</li>
+		<li>SCSS</li>
+		<li>Tailwind</li>
+		<li>HTML5</li>
+		<li>CSS</li>
+		<li>REST API</li>
+	</ul>
+</BaseLayout>
