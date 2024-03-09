@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
+import favicon from '../images/favicon.ico';
 
 export interface Props {
 	title: string;
@@ -16,7 +17,7 @@ const { title, description, image = '/social.png' } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/x-icon" sizes="16x16 24x24 32x32 48x48 64x64"  href="favicon.ico">
+<link rel="icon" type="image/x-icon" sizes="16x16 24x24 32x32 48x48 64x64"  href={favicon}>
 <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 <meta name="generator" content={Astro.generator} />
 
