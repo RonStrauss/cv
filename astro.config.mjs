@@ -9,6 +9,6 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), tailwind()],
   publicDir: 'public',
   site: 'https://ronstrauss.dev',
-  output: 'server',
-  adapter: cloudflare()
 });
+// output: '',
+// adapter: cloudflare()
