@@ -64,8 +64,6 @@ let isLoading = true;
 <script is:inline>
 	setupLoadEventListenersForAllImagesVisible();
 	function setupLoadEventListenersForAllImagesVisible() {
-		const imageContainer = document.querySelector('.image-container');
-		const title = imageContainer.dataset.title;
 		const allImages = document.querySelectorAll('img');
 
 		if (!allImages.length) return;
