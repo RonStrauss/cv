@@ -54,6 +54,7 @@ if (img) {
 	document.querySelectorAll('.load-target').forEach((img) => {
 		img.addEventListener('load', () => {
 			img.parentElement.classList.remove('is-loading');
+			img.remove();
 		});
 	});
 </script>
