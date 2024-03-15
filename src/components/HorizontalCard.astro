@@ -29,7 +29,7 @@ if (img) {
 			{
 				image && (
 					<div class="max-w-full md:max-w-[13rem] rounded-lg is-loading">
-						<div class={`skeleton h-32 w-80 max-w-full`} />
+						<div class="skeleton h-32 w-screen max-w-full" style={{aspectRatio: `${width}/${height}`}} />
 
 						<img src={image.src} loading="lazy" decoding="async" class="load-target" width="1" height="1" />
 						<img src={image.src} {...image.attributes} />
@@ -51,8 +51,11 @@ if (img) {
 </div>
 
 <script is:inline>
+	// document.body.style.setProperty('--aspectRatio', `${width}/${height}`);
+
 	document.querySelectorAll('.load-target').forEach((img) => {
 		img.addEventListener('load', () => {
+			if (!img.parentElement) return;
 			img.parentElement.classList.remove('is-loading');
 			img.remove();
 		});
