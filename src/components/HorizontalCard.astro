@@ -1,11 +1,41 @@
 ---
 const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props;
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
+let image;
+const width = 750;
+const height = 422;
+if (img) {
+	image = await getImage({ src: img, width, height, format: 'webp', alt: title });
+}
 ---
+
+<style>
+	.skeleton {
+		display: none;
+	}
+
+	.is-loading img {
+		display: none;
+	}
+
+	.is-loading .skeleton {
+		display: block;
+	}
+</style>
+
 <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]">
 	<a href={url} target={target}>
 		<div class="hero-content flex-col md:flex-row">
-			{img && <Image src={img} height={422} width={750} format="webp" alt={title} class="max-w-full md:max-w-[13rem] rounded-lg" />}
+			{
+				image && (
+					<div class="max-w-full md:max-w-[13rem] rounded-lg is-loading">
+						<div class={`skeleton h-32 w-[${width}px] max-w-full`} />
+
+						<img src={image.src} class="load-target" width="0" height="0" />
+						<img src={image.src} {...image.attributes} />
+					</div>
+				)
+			}
 			<div class="grow w-full">
 				<h1 class="text-xl font-bold">
 					{title}
@@ -19,3 +49,11 @@ import { Image } from 'astro:assets';
 		</div>
 	</a>
 </div>
+
+<script is:inline>
+	document.querySelectorAll('.load-target').forEach((img) => {
+		img.addEventListener('load', () => {
+			img.parentElement.classList.remove('is-loading');
+		});
+	});
+</script>
