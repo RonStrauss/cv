@@ -29,7 +29,7 @@ if (img) {
 			{
 				image && (
 					<div class="max-w-full md:max-w-[13rem] rounded-lg is-loading">
-						<div class={`skeleton h-32 w-[${width}px] max-w-full`} />
+						<div class={`skeleton h-32 w-80 max-w-full`} />
 
 						<img src={image.src} loading="lazy" decoding="async" class="load-target" width="0" height="0" />
 						<img src={image.src} {...image.attributes} />
