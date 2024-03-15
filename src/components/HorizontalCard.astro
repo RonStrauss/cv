@@ -55,19 +55,24 @@ if (img) {
 </div>
 
 <script is:inline>
-	const noscript = document.querySelector('noscript');
-	if (noscript) noscript.remove();
 
-	const skeleton = document.querySelector('.skeleton');
-	if (skeleton){
-		skeleton.classList.remove('no-script');
-	}
+	window.handleNoScriptAndSkeletonsAndLoadTargets ??= () => {
+		const noscript = document.querySelector('noscript');
+		if (noscript) noscript.remove();
 
-	document.querySelectorAll('.load-target').forEach((img) => {
-		img.addEventListener('load', () => {
-			if (!img.parentElement) return;
-			img.parentElement.classList.remove('is-loading');
-			img.remove();
+		const skeleton = document.querySelector('.skeleton');
+		if (skeleton){
+			skeleton.classList.remove('no-script');
+		}
+
+		document.querySelectorAll('.load-target').forEach((img) => {
+			img.addEventListener('load', () => {
+				if (!img.parentElement) return;
+				img.parentElement.classList.remove('is-loading');
+				img.remove();
+			});
 		});
-	});
+	};
+
+	handleNoScriptAndSkeletonsAndLoadTargets();
 </script>
