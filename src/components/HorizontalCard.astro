@@ -14,7 +14,7 @@ if (img) {
 		display: none;
 	}
 
-	.is-loading img {
+	.is-loading img:not(.load-target) {
 		display: none;
 	}
 
@@ -31,7 +31,7 @@ if (img) {
 					<div class="max-w-full md:max-w-[13rem] rounded-lg is-loading">
 						<div class={`skeleton h-32 w-80 max-w-full`} />
 
-						<img src={image.src} loading="lazy" decoding="async" style="opacity:0;" class="load-target" width="1" height="1" />
+						<img src={image.src} loading="lazy" decoding="async" class="load-target" width="1" height="1" />
 						<img src={image.src} {...image.attributes} />
 					</div>
 				)
