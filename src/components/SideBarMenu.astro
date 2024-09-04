@@ -1,6 +1,7 @@
 ---
 const { sideBarActiveItemID } = Astro.props;
 import { Image } from 'astro:assets';
+import { MY_EMAIL } from '../config';
 const activeClass = 'bg-base-300'; // For primary color replace with `active` class
 const routes = [
 	{ id: 'home', path: '/', text: 'Home' },
@@ -10,27 +11,28 @@ const routes = [
 	// { id: 'blog', path: '/blog/', text: 'Blog' },
 	{ id: 'cv', path: '/cv', text: 'CV' },
 ];
+const email = 'mailto:' + MY_EMAIL;
 ---
 
-<ul class="menu grow shrink menu-md overflow-y-auto">
+<ul class='menu grow shrink menu-md overflow-y-auto'>
 	{
 		routes.map((route) => (
 			<li>
-				<a class="py-3 text-base" id={route.id} href={route.path}>
+				<a class='py-3 text-base' id={route.id} href={route.path}>
 					{route.text}
 				</a>
 			</li>
 		))
 	}
 	<li>
-		<a class="py-3 text-base flex justify-between" href="mailto:ron.strauss.work@gmail.com" target="_blank" referrerpolicy="no-referrer-when-downgrade"
+		<a class='py-3 text-base flex justify-between' href={email} target='_blank' referrerpolicy='no-referrer-when-downgrade'
 			>Contact
 			<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-			<svg width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;transform: ;msFilter:;" xmlns="http://www.w3.org/2000/svg">
+			<svg width='24' height='24' viewBox='0 0 24 24' style='fill: currentColor;transform: ;msFilter:;' xmlns='http://www.w3.org/2000/svg'>
 				<path
-					fill-rule="evenodd"
-					clip-rule="evenodd"
-					d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z"
+					fill-rule='evenodd'
+					clip-rule='evenodd'
+					d='M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z'
 				></path>
 			</svg>
 		</a>
